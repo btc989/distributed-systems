@@ -1,5 +1,5 @@
 #include "clientServerThreads.h"
-
+ //server_address *my_deferred_table;
 void *server_thread (void *args)
 {
     int socket_fd;
@@ -23,9 +23,9 @@ void *server_thread (void *args)
     char caller [MAX_LINE_SIZE];
     int n;
     int i;
-    mutex_lock(caller);
-    my_deferred_table = (struct server_address *)malloc(MAX_SERVERS);
-    mutex_unlock(caller);
+    //mutex_lock(caller);
+   // my_deferred_table = (struct server_address *)malloc(MAX_SERVERS);
+    //mutex_unlock(caller);
     if ((socket_fd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf ("Server: socket failed");
@@ -159,8 +159,9 @@ void *server_thread (void *args)
                 else{
                     //defer reply
                     *my_deferred_count = *my_deferred_count +1;
-                    *my_deferred_table.host_name = source_host_name;
-                    *my_deferred_table.port_no =source_port_no;
+                    *my_deferred_table[*(int*)my_deferred_count].host_name = source_host_name;
+                     int sourcePortNo = atoi (source_port_no);
+                    my_deferred_table[*(int*)my_deferred_count].port_no =source_port_no;
                 }
                 mutex_unlock (caller);
             }

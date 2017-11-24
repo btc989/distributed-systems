@@ -146,7 +146,7 @@ void *client_thread (void *args)
             strcat(send_line, host_name);
             strcat(send_line, " ");
             
-            sprintf (work_c_string, "%d", *my_deferred_table.port_no[i]);
+            sprintf (work_c_string, "%d", my_deferred_table[i].port_no);
             strcat(send_line, work_c_string);
             strcat(send_line, "\0");
 
