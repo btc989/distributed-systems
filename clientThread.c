@@ -51,7 +51,11 @@ void *client_thread (void *args)
 
         /* THE REQUEST PART OF YOUR PRE-PROTOCOL CODE GOES HERE! */
         /*ADDDED */
-        
+        mutex_lock(caller);
+            *my_highest_ticket_no = *(int*)my_highest_ticket_no +1;
+            *my_ticket_no = my_highest_ticket_no;
+        mutex_unlock(caller);
+
         //create request to be sent
         strcpy(send_line, "request ");
         strcat(send_line, host_name);
@@ -64,12 +68,16 @@ void *client_thread (void *args)
         strcat(send_line, work_c_string);
         strcat(send_line, "\0");
 
+        printf("TEST::CLIENT:: aafter request creation %s \n",send_line);
         //loop through servers sending out request to all
         //except own server
         mutex_lock (caller);
-        for (i = 0; i < server_count; i ++)
+        printf("TEST::CLIENT:: before for-loop %d \n",server_count);
+        for (i = 0; i < server_count; i++)
         {
-            if (strcmp (host_name, server_table [i].host_name) != 0)
+            printf("TEST::CLIENT:: in for-loop %d \n",server_count);
+            printf("TEST::CLIENT:: in for '%s'  '%s' \n",host_name,server_table [i].host_name );
+            if (strcmp (host_name, server_table[i].host_name) != 0)
             {
                 
                 //open socket
@@ -82,13 +90,16 @@ void *client_thread (void *args)
 
                 memset( & server_addr, 0, sizeof(server_addr));
                 server_addr.sin_family = AF_INET;
-                hp = server_table [i].host_name;
+                hp =gethostbyname( server_table [i].host_name);
                 if (hp == (struct hostent * ) NULL) {
                     printf("gethostbyname ERROR in main: %s does not exist", server_table [i].host_name);
                     exit(1);
                 }
+                
                 memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                server_addr.sin_port = server_table [i].port_no;
+                server_addr.sin_port =  htons(TCP_PORTNO);
+
+                
 
                 if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                     printf("connect ERROR in main");
@@ -102,7 +113,7 @@ void *client_thread (void *args)
                     exit(1);
                 }
                 else
-                    printf("Request Sent to server %s",server_table [i].host_name);
+                    printf("Request Sent to server %s   \n",server_table [i].host_name);
 
 
                 //close socket
@@ -110,7 +121,7 @@ void *client_thread (void *args)
             }
         }
         mutex_unlock (caller);
-
+        printf("TEST::CLIENT:: unlock ");
         /*END OF ADDED*/
 
         printf ("    Client [HOST=%s PID=%d]: WAITING TO ENTER CRITICAL SECTION\n", host_name, getpid ());
@@ -121,8 +132,8 @@ void *client_thread (void *args)
             /*ADDED*/
             mutex_lock (caller); 
             //check shared variable
-            if(*my_replies==server_count){
-                //AWAIT_REPLIES=1;
+            if(*my_replies==server_count-1){
+                 //AWAIT_REPLIES=1;
                 *my_replies=0;
                 break;
             }
@@ -139,7 +150,10 @@ void *client_thread (void *args)
         /*ADDED */
 //create request to be sent
         mutex_lock (caller);
-        my_deferred_count = get_server_addresses (my_deferred_table);
+        printf("TEST::CLIENT:: got lock in critical section");
+        if(my_deferred_count != -1)
+            *my_deferred_count = get_server_addresses (my_deferred_table);
+        printf("TEST::CLIENT:: after deferred count");
         for (i = 0; i < my_deferred_count; i ++)
         {
             strcpy(send_line, "reply ");

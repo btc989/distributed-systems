@@ -23,9 +23,9 @@ void *server_thread (void *args)
     char caller [MAX_LINE_SIZE];
     int n;
     int i;
-    //mutex_lock(caller);
-   // my_deferred_table = (struct server_address *)malloc(MAX_SERVERS);
-    //mutex_unlock(caller);
+    mutex_lock(caller);
+        *my_deferred_count =-1;
+    mutex_unlock(caller);
     if ((socket_fd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf ("Server: socket failed");
@@ -44,7 +44,7 @@ void *server_thread (void *args)
 
     sprintf (caller, "Server [%s]", host_name);
     memcpy (&server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-    server_addr.sin_port = htons (0);
+    server_addr.sin_port = htons (TCP_PORTNO);
     if (bind (socket_fd, (struct sockaddr *) &server_addr, sizeof (server_addr)) < 0)
     {
         printf ("Server: bind failed");
@@ -69,6 +69,9 @@ void *server_thread (void *args)
     while (LOOP_FOREVER)
     {
         addr_length = sizeof (client_addr);
+
+        printf("TEST::SERVER:: after at beginning %d",socket_fd);
+                fflush(stdout);
         new_socket_fd = accept (socket_fd, (struct sockaddr *) &client_addr, &addr_length);
         if (new_socket_fd < 0)
         {
@@ -104,11 +107,19 @@ void *server_thread (void *args)
             /* YOUR REQUEST, REPLY, AND DEFERRED REPLY CODE GOES HERE! */
             /*ADDED*/
             //if request
+            printf("TEST::SERVER:: at beginning of added code \n");
+            fflush(stdout);
             if(strcmp (message_type, "request") == 0){
                 int sourceTicketNo = atoi (source_ticket_no);
+                printf("TEST::SERVER:: just before lock, %d",sourceTicketNo);
+                fflush(stdout);
                 mutex_lock (caller);
-                if(!my_server_ready || (sourceTicketNo < *my_ticket_no)||((sourceTicketNo == my_ticket_no))){ //&& (sourceID < myID ()))
+                printf("TEST::SERVER:: after lock");
+                fflush(stdout);
+                if(!my_server_ready || (sourceTicketNo <= my_ticket_no)){ //&& (sourceID < myID ()))
                     //send reply
+                    printf("TEST::SERVER:: in if");
+                fflush(stdout);
                     strcpy(send_line, "reply ");
                     strcat(send_line, host_name);
                     strcat(send_line, " ");
@@ -120,41 +131,43 @@ void *server_thread (void *args)
                     sprintf (work_c_string, "%d", *(int*)my_highest_ticket_no);
                     strcat(send_line, work_c_string);
                     strcat(send_line, "\0");
-
+                    printf("TEST::SERVER:: at after reply creation %s", send_line);
+                    fflush(stdout);
                     //open socket
                         //connect to remote server
-                    /*
-                        if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+                    
+                        if ((new_socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
                             printf("socket ERROR in main");
                             exit(1);
                         }
 
                         memset( & server_addr, 0, sizeof(server_addr));
                         server_addr.sin_family = AF_INET;
-                        hp = source_host_name;
+                        hp = gethostbyname(source_host_name);
                         if (hp == (struct hostent * ) NULL) {
-                            printf("gethostbyname ERROR in main: %s does not exist", server_table [i].host_name);
+                            printf("gethostbyname ERROR in main: %s does not exist", source_host_name);
                             exit(1);
                         }
                         memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                        server_addr.sin_port = source_port_no;
+                        server_addr.sin_port = htons(TCP_PORTNO);
 
-                        if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
+                        if (connect(new_socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                             printf("connect ERROR in main");
                             exit(1);
-                        }*/
+                        }
 
                         //send request message
                         n = strlen(send_line);
-                        if ((i = write_n(socket_fd, send_line, n)) != n) {
+                        if ((i = write_n(new_socket_fd, send_line, n)) != n) {
                             printf("ERROR: could not send to server");
                             exit(1);
                         }
                         else
                             printf("Reply Sent to server %s",source_host_name);
-
+                        
+                fflush(stdout);
                         //close socket
-                        //close(socket_fd);
+                        close(new_socket_fd);
                 }
                 else{
                     //defer reply
@@ -166,13 +179,18 @@ void *server_thread (void *args)
                 mutex_unlock (caller);
             }
             //if a reply
-            else if(strcmp (message_type, "repy") == 0)
+            else //if(strcmp (message_type, "repy") == 0)
             {
+                printf("TEST::SERVER:: in reply \n");
+                fflush(stdout);
                 mutex_lock (caller);
-                *my_replies = *my_replies +1;
+                *my_replies = *(int*) my_replies +1;
+
+                printf("TEST::SERVER:: myreplies %d \n",*my_replies);
+                fflush(stdout);
                 mutex_unlock (caller);
                 
-                printf("Reply recieved from server %s",source_host_name);
+                printf("Reply recieved from server %s \n",source_host_name);
             }
 
             /*END OF ADDED*/
