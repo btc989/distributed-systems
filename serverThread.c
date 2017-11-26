@@ -68,10 +68,11 @@ void *server_thread (void *args)
 
     while (LOOP_FOREVER)
     {
-        addr_length = sizeof (client_addr);
-
         printf("TEST::SERVER:: after at beginning %d",socket_fd);
                 fflush(stdout);
+        addr_length = sizeof (client_addr);
+
+        
         new_socket_fd = accept (socket_fd, (struct sockaddr *) &client_addr, &addr_length);
         if (new_socket_fd < 0)
         {
@@ -191,16 +192,25 @@ void *server_thread (void *args)
                 mutex_unlock (caller);
                 
                 printf("Reply recieved from server %s \n",source_host_name);
+                 printf("TEST::SERVER:: end of child \n");
+            fflush(stdout);
+            exit(1);
             }
-
+            printf("TEST::SERVER:: end of child \n");
+            fflush(stdout);
+            exit(1);
             /*END OF ADDED*/
 
 
         }
         do
         {
+            printf("TEST::SERVER:: waiting for child to end \n");
+            fflush(stdout);
             child_pid = waitpid (-1, &child_status, WNOHANG);
         } while (child_pid > 0);
+        printf("TEST::SERVER:: child ended \n");
+            fflush(stdout);
     }
 
     exit (0);
