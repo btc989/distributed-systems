@@ -53,7 +53,7 @@ void *client_thread (void *args)
         /*ADDDED */
         mutex_lock(caller);
             *my_highest_ticket_no = *(int*)my_highest_ticket_no +1;
-            *my_ticket_no = my_highest_ticket_no;
+            *my_ticket_no = *my_highest_ticket_no;
         mutex_unlock(caller);
 
         //create request to be sent
@@ -63,20 +63,24 @@ void *client_thread (void *args)
         
         sprintf (work_c_string, "%d", host_port_no);
         strcat(send_line, work_c_string);
-
-        sprintf (work_c_string, "%d", my_ticket_no);
+        strcat(send_line, " ");
+       // mutex_lock(caller);
+        printf("TEST::CLIENT:: my ticket no  %d \n",*my_ticket_no);
+        sprintf (work_c_string, "%d", *my_ticket_no);
+       // mutex_unlock(caller);
         strcat(send_line, work_c_string);
         strcat(send_line, "\0");
 
-        printf("TEST::CLIENT:: aafter request creation %s \n",send_line);
+
+        //printf("TEST::CLIENT:: aafter request creation %s \n",send_line);
         //loop through servers sending out request to all
         //except own server
         mutex_lock (caller);
-        printf("TEST::CLIENT:: before for-loop %d \n",server_count);
+        //printf("TEST::CLIENT:: before for-loop %d \n",server_count);
         for (i = 0; i < server_count; i++)
         {
-            printf("TEST::CLIENT:: in for-loop %d \n",server_count);
-            printf("TEST::CLIENT:: in for '%s'  '%s' \n",host_name,server_table [i].host_name );
+            //printf("TEST::CLIENT:: in for-loop %d \n",server_count);
+            //printf("TEST::CLIENT:: in for '%s'  '%s' \n",host_name,server_table [i].host_name );
             if (strcmp (host_name, server_table[i].host_name) != 0)
             {
                 
@@ -121,7 +125,7 @@ void *client_thread (void *args)
             }
         }
         mutex_unlock (caller);
-        printf("TEST::CLIENT:: unlock ");
+        //printf("TEST::CLIENT:: unlock ");
         /*END OF ADDED*/
 
         printf ("    Client [HOST=%s PID=%d]: WAITING TO ENTER CRITICAL SECTION\n", host_name, getpid ());
@@ -145,20 +149,20 @@ void *client_thread (void *args)
         printf ("    Client [HOST=%s PID=%d]: ENTERING CRITICAL SECTION\n", host_name, getpid ());
         write_to_history_file (host_name, host_port_no, my_ticket_no);
         printf ("    Client [HOST=%s PID=%d]: LEAVING CRITICAL SECTION\n", host_name, getpid ());
-
+mutex_unlock (caller);
         /* THE DEFERRED REPLIES OF YOUR POST-PROTOCOL CODE GOES HERE! */
         /*ADDED */
 //create request to be sent
-        printf("TEST::CLIENT:: just before lock");
+        printf("TEST::CLIENT:: just before lock\n");
         fflush(stdout);
         mutex_lock (caller);
-        printf("TEST::CLIENT:: got lock in critical section");
+        printf("TEST::CLIENT:: got lock in critical section %d\n",*my_deferred_count);
         fflush(stdout);
-        if(my_deferred_count >0){
+        if(*my_deferred_count >1){
             *my_deferred_count = get_server_addresses (my_deferred_table);
             printf("TEST::CLIENT:: after deferred count");
             fflush(stdout);
-            for (i = 0; i < my_deferred_count; i ++)
+            for (i = 0; i < *my_deferred_count; i ++)
             {
                 strcpy(send_line, "reply ");
                 strcat(send_line, host_name);
@@ -205,11 +209,11 @@ void *client_thread (void *args)
                     close(socket_fd);
             }
         }
-        my_deferred_count = 0;
+        *my_deferred_count = 0;
         mutex_unlock (caller);
         
-        printf("TEST::CLIENT:: at end \n");
-        fflush(stdout);
+        //printf("TEST::CLIENT:: at end \n");
+        //fflush(stdout);
         
         /*END OF ADDED*/
     }

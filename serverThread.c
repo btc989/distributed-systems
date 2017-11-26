@@ -23,9 +23,9 @@ void *server_thread (void *args)
     char caller [MAX_LINE_SIZE];
     int n;
     int i;
-    mutex_lock(caller);
-        *my_deferred_count =-1;
-    mutex_unlock(caller);
+    //mutex_lock(caller);
+      //  *my_deferred_count =-1;
+    //mutex_unlock(caller);
     if ((socket_fd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf ("Server: socket failed");
@@ -68,8 +68,8 @@ void *server_thread (void *args)
 
     while (LOOP_FOREVER)
     {
-        printf("TEST::SERVER:: after at beginning %d",socket_fd);
-                fflush(stdout);
+       // printf("TEST::SERVER:: after at beginning %d",socket_fd);
+        //        fflush(stdout);
         addr_length = sizeof (client_addr);
 
         
@@ -108,18 +108,27 @@ void *server_thread (void *args)
             /* YOUR REQUEST, REPLY, AND DEFERRED REPLY CODE GOES HERE! */
             /*ADDED*/
             //if request
-            printf("TEST::SERVER:: at beginning of added code \n");
+            //printf("TEST::SERVER:: at beginning of added code \n");
             fflush(stdout);
             if(strcmp (message_type, "request") == 0){
                 int sourceTicketNo = atoi (source_ticket_no);
-                printf("TEST::SERVER:: just before lock, %d",sourceTicketNo);
-                fflush(stdout);
+               // printf("TEST::SERVER:: just before lock, %d",sourceTicketNo);
+                //fflush(stdout);
                 mutex_lock (caller);
-                printf("TEST::SERVER:: after lock");
+                //printf("TEST::SERVER:: after lock");
+
+                //SET HIGHEST TICKET NUMBER SO NEXT ROUND THIS WILL BE ABLE TO GO
+                if(sourceTicketNo > *my_ticket_no)
+                    *my_highest_ticket_no = sourceTicketNo;
+                else
+                    *my_highest_ticket_no = *my_ticket_no;
+
+                 printf("TEST::SERVER:: just before compare ,%d  %d, %s, %s \n",sourceTicketNo, *my_ticket_no, source_host_name, host_name);
+                //fflush(stdout);
                 fflush(stdout);
-                if(!my_server_ready || (sourceTicketNo <= my_ticket_no)){ //&& (sourceID < myID ()))
+                if(!my_server_ready || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(source_host_name < host_name ))){ //&& (sourceID < myID ()))
                     //send reply
-                    printf("TEST::SERVER:: in if");
+                    //printf("TEST::SERVER:: in if");
                 fflush(stdout);
                     strcpy(send_line, "reply ");
                     strcat(send_line, host_name);
@@ -132,7 +141,7 @@ void *server_thread (void *args)
                     sprintf (work_c_string, "%d", *(int*)my_highest_ticket_no);
                     strcat(send_line, work_c_string);
                     strcat(send_line, "\0");
-                    printf("TEST::SERVER:: at after reply creation %s", send_line);
+                   // printf("TEST::SERVER:: at after reply creation %s", send_line);
                     fflush(stdout);
                     //open socket
                         //connect to remote server
@@ -172,45 +181,47 @@ void *server_thread (void *args)
                 }
                 else{
                     //defer reply
+                    printf("TEST::SERVER:: just before defferd,\n");
                     *my_deferred_count = *my_deferred_count +1;
                     *my_deferred_table[*(int*)my_deferred_count].host_name = source_host_name;
                      int sourcePortNo = atoi (source_port_no);
                     my_deferred_table[*(int*)my_deferred_count].port_no =source_port_no;
+                    printf("TEST::SERVER:: just after defferd,\n");
+                    mutex_unlock (caller);
                 }
                 mutex_unlock (caller);
+                exit(1);
             }
             //if a reply
             else //if(strcmp (message_type, "repy") == 0)
             {
-                printf("TEST::SERVER:: in reply \n");
-                fflush(stdout);
+               // printf("TEST::SERVER:: in reply \n");
+               // fflush(stdout);
                 mutex_lock (caller);
                 *my_replies = *(int*) my_replies +1;
 
-                printf("TEST::SERVER:: myreplies %d \n",*my_replies);
-                fflush(stdout);
+               // printf("TEST::SERVER:: myreplies %d \n",*my_replies);
+               // fflush(stdout);
                 mutex_unlock (caller);
                 
                 printf("Reply recieved from server %s \n",source_host_name);
-                 printf("TEST::SERVER:: end of child \n");
-            fflush(stdout);
+                // printf("TEST::SERVER:: end of child \n");
+           // fflush(stdout);
             exit(1);
             }
-            printf("TEST::SERVER:: end of child \n");
-            fflush(stdout);
+            //printf("TEST::SERVER:: end of child \n");
+            //fflush(stdout);
             exit(1);
             /*END OF ADDED*/
-
-
         }
         do
         {
-            printf("TEST::SERVER:: waiting for child to end \n");
-            fflush(stdout);
+            //printf("TEST::SERVER:: waiting for child to end \n");
+            //fflush(stdout);
             child_pid = waitpid (-1, &child_status, WNOHANG);
         } while (child_pid > 0);
-        printf("TEST::SERVER:: child ended \n");
-            fflush(stdout);
+        //printf("TEST::SERVER:: child ended \n");
+            //fflush(stdout);
     }
 
     exit (0);
