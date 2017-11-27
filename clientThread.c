@@ -101,7 +101,7 @@ void *client_thread (void *args)
                 }
                 
                 memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                server_addr.sin_port =  htons(TCP_PORTNO);
+                server_addr.sin_port =  htons(server_table[i].port_no);
 
                 
 
@@ -124,6 +124,7 @@ void *client_thread (void *args)
                 close(socket_fd);
             }
         }
+        *my_request = 1;
         mutex_unlock (caller);
         //printf("TEST::CLIENT:: unlock ");
         /*END OF ADDED*/
@@ -156,6 +157,7 @@ mutex_unlock (caller);
         printf("TEST::CLIENT:: just before lock\n");
         fflush(stdout);
         mutex_lock (caller);
+        *my_request = 0;
         printf("TEST::CLIENT:: got lock in critical section %d\n",*my_deferred_count);
         fflush(stdout);
         if(*my_deferred_count >1){

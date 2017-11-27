@@ -44,7 +44,7 @@ void *server_thread (void *args)
 
     sprintf (caller, "Server [%s]", host_name);
     memcpy (&server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-    server_addr.sin_port = htons (TCP_PORTNO);
+    server_addr.sin_port = htons (0);
     if (bind (socket_fd, (struct sockaddr *) &server_addr, sizeof (server_addr)) < 0)
     {
         printf ("Server: bind failed");
@@ -112,6 +112,7 @@ void *server_thread (void *args)
             fflush(stdout);
             if(strcmp (message_type, "request") == 0){
                 int sourceTicketNo = atoi (source_ticket_no);
+                int sourcePortNo = atoi (source_port_no);
                // printf("TEST::SERVER:: just before lock, %d",sourceTicketNo);
                 //fflush(stdout);
                 mutex_lock (caller);
@@ -123,10 +124,10 @@ void *server_thread (void *args)
                 else
                     *my_highest_ticket_no = *my_ticket_no;
 
-                 printf("TEST::SERVER:: just before compare ,%d  %d, %s, %s \n",sourceTicketNo, *my_ticket_no, source_host_name, host_name);
+                 printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, server_addr.sin_port);
                 //fflush(stdout);
                 fflush(stdout);
-                if(!my_server_ready || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(source_host_name < host_name ))){ //&& (sourceID < myID ()))
+                if(!*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < server_addr.sin_port ))){ //&& (sourceID < myID ()))
                     //send reply
                     //printf("TEST::SERVER:: in if");
                 fflush(stdout);
@@ -159,7 +160,7 @@ void *server_thread (void *args)
                             exit(1);
                         }
                         memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                        server_addr.sin_port = htons(TCP_PORTNO);
+                        server_addr.sin_port = htons(sourcePortNo);
 
                         if (connect(new_socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                             printf("connect ERROR in main");
