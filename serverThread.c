@@ -11,6 +11,7 @@ void *server_thread (void *args)
     struct sockaddr_in client_addr;
     struct hostent *hp;
     char host_name [MAX_LINE_SIZE];
+    int port_no;
     int source_socket_fd;
     struct sockaddr_in source_addr;
     char message_type [MAX_LINE_SIZE];
@@ -65,11 +66,12 @@ void *server_thread (void *args)
     }
     publish_server_address (host_name, ntohs (server_addr.sin_port));
     printf ("Server [HOST=%s PID=%d]: ready and listening on [PORT=%d]\n", host_name, getpid (), ntohs (server_addr.sin_port));
+    port_no=server_addr.sin_port;
 
     while (LOOP_FOREVER)
     {
-       // printf("TEST::SERVER:: after at beginning %d",socket_fd);
-        //        fflush(stdout);
+       printf("TEST::SERVER:: after at beginning ");
+               fflush(stdout);
         addr_length = sizeof (client_addr);
 
         
@@ -124,12 +126,13 @@ void *server_thread (void *args)
                 else
                     *my_highest_ticket_no = *my_ticket_no;
 
-                 printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, server_addr.sin_port);
+                 printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, port_no);
                 //fflush(stdout);
                 fflush(stdout);
-                if(!*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < server_addr.sin_port ))){ //&& (sourceID < myID ()))
+                if(*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
                     //send reply
                     //printf("TEST::SERVER:: in if");
+                    int r_socket_fd;
                 fflush(stdout);
                     strcpy(send_line, "reply ");
                     strcat(send_line, host_name);
@@ -147,7 +150,7 @@ void *server_thread (void *args)
                     //open socket
                         //connect to remote server
                     
-                        if ((new_socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+                        if ((r_socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
                             printf("socket ERROR in main");
                             exit(1);
                         }
@@ -162,14 +165,14 @@ void *server_thread (void *args)
                         memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
                         server_addr.sin_port = htons(sourcePortNo);
 
-                        if (connect(new_socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
+                        if (connect(r_socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                             printf("connect ERROR in main");
                             exit(1);
                         }
 
                         //send request message
                         n = strlen(send_line);
-                        if ((i = write_n(new_socket_fd, send_line, n)) != n) {
+                        if ((i = write_n(r_socket_fd, send_line, n)) != n) {
                             printf("ERROR: could not send to server");
                             exit(1);
                         }
@@ -178,16 +181,15 @@ void *server_thread (void *args)
                         
                 fflush(stdout);
                         //close socket
-                        close(new_socket_fd);
+                        close(r_socket_fd);
                 }
                 else{
                     //defer reply
                     printf("TEST::SERVER:: just before defferd,\n");
                     *my_deferred_count = *my_deferred_count +1;
-                    *my_deferred_table[*(int*)my_deferred_count].host_name = source_host_name;
-                     int sourcePortNo = atoi (source_port_no);
-                    my_deferred_table[*(int*)my_deferred_count].port_no =source_port_no;
-                    printf("TEST::SERVER:: just after defferd,\n");
+                    *my_deferred_table[*my_deferred_count].host_name = source_host_name;
+                    my_deferred_table[*my_deferred_count].port_no = sourcePortNo;
+                    printf("TEST::SERVER:: just after defferd %d   %d ,\n",*my_deferred_count, my_deferred_table[*my_deferred_count].port_no);
                     mutex_unlock (caller);
                 }
                 mutex_unlock (caller);
@@ -210,8 +212,8 @@ void *server_thread (void *args)
            // fflush(stdout);
             exit(1);
             }
-            //printf("TEST::SERVER:: end of child \n");
-            //fflush(stdout);
+            printf("TEST::SERVER:: end of child \n");
+            fflush(stdout);
             exit(1);
             /*END OF ADDED*/
         }

@@ -14,6 +14,7 @@ void *client_thread (void *args)
     char caller [MAX_LINE_SIZE];
     int i;
     int n;
+    int j=0;
 
     gethostname (host_name, sizeof (host_name));
     sprintf (caller, "    Client [%s]", host_name);
@@ -76,12 +77,13 @@ void *client_thread (void *args)
         //loop through servers sending out request to all
         //except own server
         mutex_lock (caller);
-        //printf("TEST::CLIENT:: before for-loop %d \n",server_count);
-        for (i = 0; i < server_count; i++)
+       // printf("TEST::CLIENT:: before for-loop %d \n",server_count);
+        for (j = 0; j < server_count; j++)
         {
             //printf("TEST::CLIENT:: in for-loop %d \n",server_count);
             //printf("TEST::CLIENT:: in for '%s'  '%s' \n",host_name,server_table [i].host_name );
-            if (strcmp (host_name, server_table[i].host_name) != 0)
+           // printf("TEST::CLIENT:: loop %d  compare %s %s\n",j,host_name,  server_table[j].host_name);
+            if (strcmp (host_name, server_table[j].host_name) != 0)
             {
                 
                 //open socket
@@ -94,14 +96,15 @@ void *client_thread (void *args)
 
                 memset( & server_addr, 0, sizeof(server_addr));
                 server_addr.sin_family = AF_INET;
-                hp =gethostbyname( server_table [i].host_name);
+                hp =gethostbyname( server_table [j].host_name);
                 if (hp == (struct hostent * ) NULL) {
-                    printf("gethostbyname ERROR in main: %s does not exist", server_table [i].host_name);
+                    printf("gethostbyname ERROR in main: %s does not exist", server_table [j].host_name);
                     exit(1);
                 }
                 
                 memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                server_addr.sin_port =  htons(server_table[i].port_no);
+                //printf("TEST::CLIENT:: port num %d \n",server_table[j].port_no);
+                server_addr.sin_port =  htons(server_table[j].port_no);
 
                 
 
@@ -117,13 +120,15 @@ void *client_thread (void *args)
                     exit(1);
                 }
                 else
-                    printf("Request Sent to server %s   \n",server_table [i].host_name);
+                    printf("Request Sent to server %s   \n",server_table [j].host_name);
 
 
                 //close socket
                 close(socket_fd);
             }
+           // printf("TEST::CLIENT:: bottom for-loop %d \n",j);
         }
+        
         *my_request = 1;
         mutex_unlock (caller);
         //printf("TEST::CLIENT:: unlock ");
@@ -154,26 +159,28 @@ mutex_unlock (caller);
         /* THE DEFERRED REPLIES OF YOUR POST-PROTOCOL CODE GOES HERE! */
         /*ADDED */
 //create request to be sent
-        printf("TEST::CLIENT:: just before lock\n");
+        //printf("TEST::CLIENT:: just before lock\n");
         fflush(stdout);
         mutex_lock (caller);
         *my_request = 0;
-        printf("TEST::CLIENT:: got lock in critical section %d\n",*my_deferred_count);
+        printf("        TEST::CLIENT:: got lock in critical section %d\n",*my_deferred_count);
         fflush(stdout);
-        if(*my_deferred_count >1){
+        if(*my_deferred_count >=1){
             *my_deferred_count = get_server_addresses (my_deferred_table);
-            printf("TEST::CLIENT:: after deferred count");
+            printf("        TEST::CLIENT:: after deferred count");
             fflush(stdout);
-            for (i = 0; i < *my_deferred_count; i ++)
+            
+            for (j = 1; j <= *my_deferred_count; j ++)
             {
                 strcpy(send_line, "reply ");
                 strcat(send_line, host_name);
                 strcat(send_line, " ");
                 
-                sprintf (work_c_string, "%d", my_deferred_table[i].port_no);
+                sprintf (work_c_string, "%d", my_deferred_table[j].port_no);
                 strcat(send_line, work_c_string);
                 strcat(send_line, "\0");
 
+                
                 //open socket
                     //connect to remote server
 
@@ -184,19 +191,26 @@ mutex_unlock (caller);
 
                     memset( & server_addr, 0, sizeof(server_addr));
                     server_addr.sin_family = AF_INET;
-                    hp = my_deferred_table[i].host_name;
+                    hp = gethostbyname(my_deferred_table[j].host_name);
+
                     if (hp == (struct hostent * ) NULL) {
-                        printf("gethostbyname ERROR in main: %s does not exist", server_table [i].host_name);
+                        printf("gethostbyname ERROR in main: %s does not exist", my_deferred_table[j].host_name);
                         exit(1);
                     }
                     memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
-                    server_addr.sin_port = my_deferred_table[i].port_no;
 
+                    server_addr.sin_port = my_deferred_table[j].port_no;
+
+printf("        TEST::CLIENT:: made it this far %d %s \n",my_deferred_table[j].port_no, my_deferred_table[j].host_name );
+            fflush(stdout);
+        
                     if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                         printf("connect ERROR in main");
                         exit(1);
                     }
 
+printf("        TEST::CLIENT:: made it this far");
+            fflush(stdout);
                     //send request message
                     n = strlen(send_line);
                     if ((i = write_n(socket_fd, send_line, n)) != n) {
@@ -204,13 +218,17 @@ mutex_unlock (caller);
                         exit(1);
                     }
                     else
-                        printf("Reply Sent to  defered server %s",my_deferred_table[i].host_name);
+                        printf("Reply Sent to  defered server %s",my_deferred_table[j].host_name);
 
+printf("        TEST::CLIENT:: made it this far2");
+            fflush(stdout);
                         fflush(stdout); 
                     //close socket
                     close(socket_fd);
             }
         }
+        printf("        TEST::CLIENT:: made it this far3");
+            fflush(stdout);
         *my_deferred_count = 0;
         mutex_unlock (caller);
         
