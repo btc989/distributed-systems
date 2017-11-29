@@ -127,7 +127,7 @@ void *server_thread (void *args)
                  printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, port_no);
                 //fflush(stdout);
                 fflush(stdout);
-                if(!*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
+                if(*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
                     //send reply
                     //printf("TEST::SERVER:: in if");
                     int r_socket_fd;
@@ -200,7 +200,7 @@ void *server_thread (void *args)
                // printf("TEST::SERVER:: in reply \n");
                // fflush(stdout);
                 mutex_lock (caller);
-                *my_replies = *(int*) my_replies +1;
+                *my_replies = *my_replies +1;
 
                // printf("TEST::SERVER:: myreplies %d \n",*my_replies);
                // fflush(stdout);

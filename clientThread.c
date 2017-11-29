@@ -120,7 +120,7 @@ void *client_thread (void *args)
                     exit(1);
                 }
                 else
-                    printf("Request Sent to server %s   \n",server_table [j].host_name);
+                    printf("        Client: Request Sent to server %s   \n",server_table [j].host_name);
 
 
                 //close socket
@@ -135,14 +135,15 @@ void *client_thread (void *args)
         /*END OF ADDED*/
 
         printf ("    Client [HOST=%s PID=%d]: WAITING TO ENTER CRITICAL SECTION\n", host_name, getpid ());
+        
         while (AWAIT_REPLIES)
         {
 
             /* THE AWAIT REPLIES PART OF YOUR PRE-PROTOCOL CODE GOES HERE! */
             /*ADDED*/
             mutex_lock (caller); 
-            //check shared variable
-            if(*my_replies==server_count-1){
+            //check shared variable 
+            if(*my_replies>=server_count-1){
                  //AWAIT_REPLIES=1;
                 *my_replies=0;
                 break;
@@ -218,10 +219,10 @@ printf("        TEST::CLIENT:: five \n");
                     printf("ERROR: could not send to server");
                     exit(1);
                 }
-                else
+                else{
                     printf("Request Sent to server %s   \n",my_deferred_table [j].host_name);
-
-
+                    *my_deferred_count = *my_deferred_count -1;
+                }
                 //close socket
                 close(socket_fd);
                 printf("This is ccyle j %d",j);
@@ -237,7 +238,6 @@ printf("        TEST::CLIENT:: five \n");
         
         /*END OF ADDED*/
     }
-
     exit (0);
 }
 
