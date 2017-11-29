@@ -24,9 +24,7 @@ void *server_thread (void *args)
     char caller [MAX_LINE_SIZE];
     int n;
     int i;
-    //mutex_lock(caller);
-      //  *my_deferred_count =-1;
-    //mutex_unlock(caller);
+   
     if ((socket_fd = socket (AF_INET, SOCK_STREAM, 0)) < 0)
     {
         printf ("Server: socket failed");
@@ -129,7 +127,7 @@ void *server_thread (void *args)
                  printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, port_no);
                 //fflush(stdout);
                 fflush(stdout);
-                if(*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
+                if(!*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
                     //send reply
                     //printf("TEST::SERVER:: in if");
                     int r_socket_fd;
@@ -186,9 +184,10 @@ void *server_thread (void *args)
                 else{
                     //defer reply
                     printf("TEST::SERVER:: just before defferd,\n");
-                    *my_deferred_count = *my_deferred_count +1;
+                    
                     *my_deferred_table[*my_deferred_count].host_name = source_host_name;
                     my_deferred_table[*my_deferred_count].port_no = sourcePortNo;
+                    *my_deferred_count = *my_deferred_count +1;
                     printf("TEST::SERVER:: just after defferd %d   %d ,\n",*my_deferred_count, my_deferred_table[*my_deferred_count].port_no);
                     mutex_unlock (caller);
                 }

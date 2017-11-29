@@ -167,11 +167,12 @@ mutex_unlock (caller);
         fflush(stdout);
         if(*my_deferred_count >=1){
             *my_deferred_count = get_server_addresses (my_deferred_table);
-            printf("        TEST::CLIENT:: after deferred count");
+            printf("        TEST::CLIENT:: after deferred count\n");
             fflush(stdout);
             
-            for (j = 1; j <= *my_deferred_count; j ++)
+            for (j = 0; j < *my_deferred_count; j ++)
             {
+                printf("This is cyle j %d",j);
                 strcpy(send_line, "reply ");
                 strcat(send_line, host_name);
                 strcat(send_line, " ");
@@ -182,49 +183,48 @@ mutex_unlock (caller);
 
                 
                 //open socket
-                    //connect to remote server
+                //connect to remote server
+printf("        TEST::CLIENT:: one \n");
+                if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+                    printf("socket ERROR in main");
+                    exit(1);
+                }
 
-                    if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-                        printf("socket ERROR in main");
-                        exit(1);
-                    }
+printf("        TEST::CLIENT:: ttwo \n");
+                memset( & server_addr, 0, sizeof(server_addr));
+                server_addr.sin_family = AF_INET;
+                hp =gethostbyname( my_deferred_table [j].host_name);
+                if (hp == (struct hostent * ) NULL) {
+                    printf("gethostbyname ERROR in main: %s does not exist", my_deferred_table [j].host_name);
+                    exit(1);
+                }
+                printf("        TEST::CLIENT:: three %s \n",my_deferred_table [j].host_name);
 
-                    memset( & server_addr, 0, sizeof(server_addr));
-                    server_addr.sin_family = AF_INET;
-                    hp = gethostbyname(my_deferred_table[j].host_name);
 
-                    if (hp == (struct hostent * ) NULL) {
-                        printf("gethostbyname ERROR in main: %s does not exist", my_deferred_table[j].host_name);
-                        exit(1);
-                    }
-                    memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
+                memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
+                //printf("TEST::CLIENT:: port num %d \n",server_table[j].port_no);
+                server_addr.sin_port =  htons(my_deferred_table[j].port_no);
 
-                    server_addr.sin_port = my_deferred_table[j].port_no;
+              printf("        TEST::CLIENT:: four \n");  
 
-printf("        TEST::CLIENT:: made it this far %d %s \n",my_deferred_table[j].port_no, my_deferred_table[j].host_name );
-            fflush(stdout);
-        
-                    if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
-                        printf("connect ERROR in main");
-                        exit(1);
-                    }
+                if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
+                    printf("connect ERROR in main");
+                    exit(1);
+                }
+printf("        TEST::CLIENT:: five \n");
+                //send request message
+                n = strlen(send_line);
+                if ((i = write_n(socket_fd, send_line, n)) != n) {
+                    printf("ERROR: could not send to server");
+                    exit(1);
+                }
+                else
+                    printf("Request Sent to server %s   \n",my_deferred_table [j].host_name);
 
-printf("        TEST::CLIENT:: made it this far");
-            fflush(stdout);
-                    //send request message
-                    n = strlen(send_line);
-                    if ((i = write_n(socket_fd, send_line, n)) != n) {
-                        printf("ERROR: could not send to server");
-                        exit(1);
-                    }
-                    else
-                        printf("Reply Sent to  defered server %s",my_deferred_table[j].host_name);
 
-printf("        TEST::CLIENT:: made it this far2");
-            fflush(stdout);
-                        fflush(stdout); 
-                    //close socket
-                    close(socket_fd);
+                //close socket
+                close(socket_fd);
+                printf("This is ccyle j %d",j);
             }
         }
         printf("        TEST::CLIENT:: made it this far3");
