@@ -107,17 +107,11 @@ void *server_thread (void *args)
 
             /* YOUR REQUEST, REPLY, AND DEFERRED REPLY CODE GOES HERE! */
             /*ADDED*/
-            //if request
-            //printf("TEST::SERVER:: at beginning of added code \n");
-            fflush(stdout);
+        
             if(strcmp (message_type, "request") == 0){
                 int sourceTicketNo = atoi (source_ticket_no);
                 int sourcePortNo = atoi (source_port_no);
-               // printf("TEST::SERVER:: just before lock, %d",sourceTicketNo);
-                //fflush(stdout);
                 mutex_lock (caller);
-                //printf("TEST::SERVER:: after lock");
-
                 //SET HIGHEST TICKET NUMBER SO NEXT ROUND THIS WILL BE ABLE TO GO
                 if(sourceTicketNo > *my_ticket_no)
                     *my_highest_ticket_no = sourceTicketNo;
@@ -129,9 +123,9 @@ void *server_thread (void *args)
                 fflush(stdout);
                 if(*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
                     //send reply
-                    //printf("TEST::SERVER:: in if");
+                    
                     int r_socket_fd;
-                fflush(stdout);
+    
                     strcpy(send_line, "reply ");
                     strcat(send_line, host_name);
                     strcat(send_line, " ");
@@ -143,8 +137,7 @@ void *server_thread (void *args)
                     sprintf (work_c_string, "%d", *(int*)my_highest_ticket_no);
                     strcat(send_line, work_c_string);
                     strcat(send_line, "\0");
-                   // printf("TEST::SERVER:: at after reply creation %s", send_line);
-                    fflush(stdout);
+                   
                     //open socket
                         //connect to remote server
                     
@@ -183,24 +176,9 @@ void *server_thread (void *args)
                 }
                 else{
                     //defer reply
-                   // printf("TEST::SERVER:: just before defferd,\n");
-                    
-                    // my_deferred_table->host_name = *source_host_name;
-
-                    // my_deferred_table[*my_deferred_count]= malloc(sizeof(struct server_address));
-
                      strcpy (my_deferred_table[*my_deferred_count].host_name, source_host_name);
                      my_deferred_table[*my_deferred_count].port_no = sourcePortNo;
-                     
-                    
-                    //printf("TEST::SERVER:: just after defferd %d   %d ,\n",*my_deferred_count, my_deferred_table[*my_deferred_count].port_no);
-                   // printf("TEST::SERVER:: ServerNum entered %d ,\n",sourcePortNo);
-                   // printf("TEST::SERVER:: HostNamme entered %s ,\n",source_host_name);
-                   // printf("TEST::SERVER:: array values %s   %d ,\n",my_deferred_table->host_name, my_deferred_table->port_no);
                     printf("TEST::SERVER:: Added to deferred table are:  %s   %d ,\n",my_deferred_table[*my_deferred_count].host_name, my_deferred_table[*my_deferred_count].port_no);
-                   // printf("table address b %d \n",my_deferred_table );
-                    
-                    //printf("table address a %d \n",my_deferred_table );
                     *my_deferred_count = *my_deferred_count +1;
                     mutex_unlock (caller);
                 }
@@ -208,35 +186,21 @@ void *server_thread (void *args)
                 exit(1);
             }
             //if a reply
-            else //if(strcmp (message_type, "repy") == 0)
+            else 
             {
-               // printf("TEST::SERVER:: in reply \n");
-               // fflush(stdout);
                 mutex_lock (caller);
                 *my_replies = *my_replies +1;
-
-               // printf("TEST::SERVER:: myreplies %d \n",*my_replies);
-               // fflush(stdout);
                 mutex_unlock (caller);
-                
                 printf("Reply recieved from server %s \n",source_host_name);
-                // printf("TEST::SERVER:: end of child \n");
-           // fflush(stdout);
             exit(1);
             }
-            printf("TEST::SERVER:: end of child \n");
-            fflush(stdout);
             exit(1);
             /*END OF ADDED*/
         }
         do
         {
-            //printf("TEST::SERVER:: waiting for child to end \n");
-            //fflush(stdout);
             child_pid = waitpid (-1, &child_status, WNOHANG);
         } while (child_pid > 0);
-        //printf("TEST::SERVER:: child ended \n");
-            //fflush(stdout);
     }
 
     exit (0);

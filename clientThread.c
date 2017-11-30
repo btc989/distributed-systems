@@ -65,30 +65,23 @@ void *client_thread (void *args)
         sprintf (work_c_string, "%d", host_port_no);
         strcat(send_line, work_c_string);
         strcat(send_line, " ");
-       // mutex_lock(caller);
+      
         printf("        CLIENT:: my ticket no:  %d \n",*my_ticket_no);
         sprintf (work_c_string, "%d", *my_ticket_no);
-       // mutex_unlock(caller);
+      
         strcat(send_line, work_c_string);
         strcat(send_line, "\0");
 
-
-        //printf("TEST::CLIENT:: aafter request creation %s \n",send_line);
         //loop through servers sending out request to all
         //except own server
         mutex_lock (caller);
-       // printf("TEST::CLIENT:: before for-loop %d \n",server_count);
+       
         for (j = 0; j < server_count; j++)
         {
-            //printf("TEST::CLIENT:: in for-loop %d \n",server_count);
-            //printf("TEST::CLIENT:: in for '%s'  '%s' \n",host_name,server_table [i].host_name );
-           // printf("TEST::CLIENT:: loop %d  compare %s %s\n",j,host_name,  server_table[j].host_name);
             if (strcmp (host_name, server_table[j].host_name) != 0)
             {
-                
                 //open socket
                 //connect to remote server
-
                 if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
                     printf("socket ERROR in main");
                     exit(1);
@@ -106,8 +99,6 @@ void *client_thread (void *args)
                 //printf("TEST::CLIENT:: port num %d \n",server_table[j].port_no);
                 server_addr.sin_port =  htons(server_table[j].port_no);
 
-                
-
                 if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                     printf("connect ERROR in main");
                     exit(1);
@@ -121,24 +112,19 @@ void *client_thread (void *args)
                 }
                 else
                     printf("        Client: Request Sent to server %s   \n",server_table [j].host_name);
-
-
                 //close socket
                 close(socket_fd);
             }
-           // printf("TEST::CLIENT:: bottom for-loop %d \n",j);
         }
         
         *my_request = 1;
         mutex_unlock (caller);
-        //printf("TEST::CLIENT:: unlock ");
         /*END OF ADDED*/
 
         printf ("    Client [HOST=%s PID=%d]: WAITING TO ENTER CRITICAL SECTION\n", host_name, getpid ());
         
         while (AWAIT_REPLIES)
         {
-
             /* THE AWAIT REPLIES PART OF YOUR PRE-PROTOCOL CODE GOES HERE! */
             /*ADDED*/
             mutex_lock (caller); 
@@ -151,7 +137,6 @@ void *client_thread (void *args)
                 
             mutex_unlock (caller);
             /*END OF ADDED */
-
         }
         printf ("    Client [HOST=%s PID=%d]: ENTERING CRITICAL SECTION\n", host_name, getpid ());
         write_to_history_file (host_name, host_port_no, my_ticket_no);
@@ -160,16 +145,9 @@ mutex_unlock (caller);
         /* THE DEFERRED REPLIES OF YOUR POST-PROTOCOL CODE GOES HERE! */
         /*ADDED */
 //create request to be sent
-        //printf("TEST::CLIENT:: just before lock\n");
-        fflush(stdout);
         mutex_lock (caller);
         *my_request = 0;
-       // printf("        TEST::CLIENT:: got lock in critical section %d\n",*my_deferred_count);
-        fflush(stdout);
         if(*my_deferred_count >=1){
-            //*my_deferred_count = get_server_addresses (my_deferred_table);
-            //printf("        TEST::CLIENT:: after deferred count\n");
-            fflush(stdout);
             
             for (j = 0; j < *my_deferred_count; j ++)
             {
@@ -181,17 +159,14 @@ mutex_unlock (caller);
                 sprintf (work_c_string, "%d", my_deferred_table[j].port_no);
                 strcat(send_line, work_c_string);
                 strcat(send_line, "\0");
-
-                
                 //open socket
                 //connect to remote server
-//printf("        TEST::CLIENT:: one \n");
+
                 if ((socket_fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
                     printf("socket ERROR in main");
                     exit(1);
                 }
 
-//printf("        TEST::CLIENT:: ttwo %s %d\n",my_deferred_table[j].host_name,my_deferred_table[j].port_no);
                 memset( & server_addr, 0, sizeof(server_addr));
                 server_addr.sin_family = AF_INET;
                 hp =gethostbyname( my_deferred_table [j].host_name);
@@ -199,20 +174,16 @@ mutex_unlock (caller);
                     printf("gethostbyname ERROR in main: %s does not exist", my_deferred_table [j].host_name);
                     exit(1);
                 }
-               // printf("        TEST::CLIENT:: three %s \n",my_deferred_table [j].host_name);
-
 
                 memcpy( & server_addr.sin_addr, hp -> h_addr, hp -> h_length);
                 //printf("TEST::CLIENT:: port num %d \n",server_table[j].port_no);
                 server_addr.sin_port =  htons(my_deferred_table[j].port_no);
 
-             // printf("        TEST::CLIENT:: four \n");  
-
                 if (connect(socket_fd, (struct sockaddr * ) & server_addr, sizeof(server_addr)) < 0) {
                     printf("connect ERROR in main");
                     exit(1);
                 }
-//printf("        TEST::CLIENT:: five \n");
+
                 //send request message
                 n = strlen(send_line);
                 if ((i = write_n(socket_fd, send_line, n)) != n) {
@@ -221,21 +192,13 @@ mutex_unlock (caller);
                 }
                 else{
                     printf("Request Sent to server %s   \n",my_deferred_table [j].host_name);
-                    //*my_deferred_count = *my_deferred_count -1;
                 }
                 //close socket
                 close(socket_fd);
-               // printf("This is ccyle j %d",j);
             }
         }
-      //  printf("        TEST::CLIENT:: made it this far3");
-          //  fflush(stdout);
         *my_deferred_count = 0;
         mutex_unlock (caller);
-        
-        //printf("TEST::CLIENT:: at end \n");
-        //fflush(stdout);
-        
         /*END OF ADDED*/
     }
     exit (0);
