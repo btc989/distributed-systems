@@ -17,6 +17,8 @@
 #define AWAIT_REPLIES 1
 #define SERVER_NOT_READY 1
 
+#define TCP_PORTNO 4259
+
 struct server_address
 {
     char host_name [MAX_LINE_SIZE];

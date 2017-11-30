@@ -1,0 +1,1974 @@
+Script started on Thu Nov 30 09:03:27 2017
+Script on a049403[1]% gzap
+Script on a049403[2]% general\[K
+    Client [HOST=a049403 PID=25109]: ready
+Server [HOST=a049403 PID=25109]: ready and listening on [PORT=54288]
+Server [HOST=a049403 PID=25109]: received [start]
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  1 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 2]
+SERVER:: Compare sourceticket: 2  myticket: 1, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 3]
+SERVER:: Compare sourceticket: 3  myticket: 1, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 4]
+SERVER:: Compare sourceticket: 4  myticket: 1, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 5]
+SERVER:: Compare sourceticket: 5  myticket: 1, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 6]
+SERVER:: Compare sourceticket: 6  myticket: 1, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 7]
+SERVER:: Compare sourceticket: 7  myticket: 1, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  8 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 8]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 8]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 8]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 9]
+SERVER:: Compare sourceticket: 9  myticket: 8, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 10]
+SERVER:: Compare sourceticket: 10  myticket: 8, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 11]
+SERVER:: Compare sourceticket: 11  myticket: 8, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  12 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 12]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 12]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 12]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 13]
+SERVER:: Compare sourceticket: 13  myticket: 12, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 14]
+SERVER:: Compare sourceticket: 14  myticket: 12, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  15 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 15]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 15]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 16]
+SERVER:: Compare sourceticket: 16  myticket: 15, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 17]
+SERVER:: Compare sourceticket: 17  myticket: 15, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 18]
+SERVER:: Compare sourceticket: 18  myticket: 15, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 19]
+SERVER:: Compare sourceticket: 19  myticket: 15, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  20 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 20]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 20]
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 20]
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 21]
+SERVER:: Compare sourceticket: 21  myticket: 20, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 22]
+SERVER:: Compare sourceticket: 22  myticket: 20, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 23]
+SERVER:: Compare sourceticket: 23  myticket: 20, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  24 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 24]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 24]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 24]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 25]
+SERVER:: Compare sourceticket: 25  myticket: 24, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 26]
+SERVER:: Compare sourceticket: 26  myticket: 24, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  27 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 27]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 27]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 28]
+SERVER:: Compare sourceticket: 28  myticket: 27, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 29]
+SERVER:: Compare sourceticket: 29  myticket: 27, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  30 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 30]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 31]
+SERVER:: Compare sourceticket: 31  myticket: 30, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 32]
+SERVER:: Compare sourceticket: 32  myticket: 30, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 33]
+SERVER:: Compare sourceticket: 33  myticket: 30, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 34]
+SERVER:: Compare sourceticket: 34  myticket: 30, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 35]
+SERVER:: Compare sourceticket: 35  myticket: 30, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  36 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 36]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 36]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 36]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  37 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 38]
+SERVER:: Compare sourceticket: 38  myticket: 37, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049408 38167 39]
+SERVER:: Compare sourceticket: 39  myticket: 37, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 40]
+SERVER:: Compare sourceticket: 40  myticket: 37, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 41]
+SERVER:: Compare sourceticket: 41  myticket: 37, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 42]
+SERVER:: Compare sourceticket: 42  myticket: 37, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  43 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 43]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 43]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 44]
+SERVER:: Compare sourceticket: 44  myticket: 43, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 45]
+SERVER:: Compare sourceticket: 45  myticket: 43, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 46]
+SERVER:: Compare sourceticket: 46  myticket: 43, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 47]
+SERVER:: Compare sourceticket: 47  myticket: 43, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  48 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 48]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 48]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 48]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 49]
+SERVER:: Compare sourceticket: 49  myticket: 48, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 50]
+SERVER:: Compare sourceticket: 50  myticket: 48, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  51 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 51]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 51]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 52]
+SERVER:: Compare sourceticket: 52  myticket: 51, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 53]
+SERVER:: Compare sourceticket: 53  myticket: 51, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  54 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 54]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 55]
+SERVER:: Compare sourceticket: 55  myticket: 54, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 56]
+SERVER:: Compare sourceticket: 56  myticket: 54, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 57]
+SERVER:: Compare sourceticket: 57  myticket: 54, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  58 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 58]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 59]
+SERVER:: Compare sourceticket: 59  myticket: 58, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 60]
+SERVER:: Compare sourceticket: 60  myticket: 58, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 61]
+SERVER:: Compare sourceticket: 61  myticket: 58, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  62 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 62]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 63]
+SERVER:: Compare sourceticket: 63  myticket: 62, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 64]
+SERVER:: Compare sourceticket: 64  myticket: 62, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 65]
+SERVER:: Compare sourceticket: 65  myticket: 62, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 66]
+SERVER:: Compare sourceticket: 66  myticket: 62, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 67]
+SERVER:: Compare sourceticket: 67  myticket: 62, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  68 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 68]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 68]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 68]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 69]
+SERVER:: Compare sourceticket: 69  myticket: 68, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  70 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 70]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 71]
+SERVER:: Compare sourceticket: 71  myticket: 70, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 72]
+SERVER:: Compare sourceticket: 72  myticket: 70, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 73]
+SERVER:: Compare sourceticket: 73  myticket: 70, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 74]
+SERVER:: Compare sourceticket: 74  myticket: 70, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 75]
+SERVER:: Compare sourceticket: 75  myticket: 70, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  76 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 76]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 76]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 76]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  77 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 78]
+SERVER:: Compare sourceticket: 78  myticket: 77, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 79]
+SERVER:: Compare sourceticket: 79  myticket: 77, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 80]
+SERVER:: Compare sourceticket: 80  myticket: 77, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  81 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 82]
+SERVER:: Compare sourceticket: 82  myticket: 81, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 83]
+SERVER:: Compare sourceticket: 83  myticket: 81, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 84]
+SERVER:: Compare sourceticket: 84  myticket: 81, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 85]
+SERVER:: Compare sourceticket: 85  myticket: 81, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  86 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 86]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 87]
+SERVER:: Compare sourceticket: 87  myticket: 86, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 88]
+SERVER:: Compare sourceticket: 88  myticket: 86, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 89]
+SERVER:: Compare sourceticket: 89  myticket: 86, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 90]
+SERVER:: Compare sourceticket: 90  myticket: 86, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  91 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 91]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 91]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 92]
+SERVER:: Compare sourceticket: 92  myticket: 91, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 93]
+SERVER:: Compare sourceticket: 93  myticket: 91, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 94]
+SERVER:: Compare sourceticket: 94  myticket: 91, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 95]
+SERVER:: Compare sourceticket: 95  myticket: 91, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  96 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 96]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 96]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 96]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  97 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 98]
+SERVER:: Compare sourceticket: 98  myticket: 97, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 99]
+SERVER:: Compare sourceticket: 99  myticket: 97, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049408 38167 100]
+SERVER:: Compare sourceticket: 100  myticket: 97, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 101]
+SERVER:: Compare sourceticket: 101  myticket: 97, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 102]
+SERVER:: Compare sourceticket: 102  myticket: 97, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  103 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 103]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 103]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 104]
+SERVER:: Compare sourceticket: 104  myticket: 103, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 105]
+SERVER:: Compare sourceticket: 105  myticket: 103, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  106 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 106]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 107]
+SERVER:: Compare sourceticket: 107  myticket: 106, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 108]
+SERVER:: Compare sourceticket: 108  myticket: 106, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 109]
+SERVER:: Compare sourceticket: 109  myticket: 106, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 110]
+SERVER:: Compare sourceticket: 110  myticket: 106, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  111 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 111]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 111]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 112]
+SERVER:: Compare sourceticket: 112  myticket: 111, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 113]
+SERVER:: Compare sourceticket: 113  myticket: 111, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 114]
+SERVER:: Compare sourceticket: 114  myticket: 111, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 115]
+SERVER:: Compare sourceticket: 115  myticket: 111, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  116 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 116]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 116]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 116]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 117]
+SERVER:: Compare sourceticket: 117  myticket: 116, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 118]
+SERVER:: Compare sourceticket: 118  myticket: 116, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  119 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 119]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 119]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 120]
+SERVER:: Compare sourceticket: 120  myticket: 119, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  121 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 122]
+SERVER:: Compare sourceticket: 122  myticket: 121, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 123]
+SERVER:: Compare sourceticket: 123  myticket: 121, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 124]
+SERVER:: Compare sourceticket: 124  myticket: 121, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  125 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 126]
+SERVER:: Compare sourceticket: 126  myticket: 125, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 127]
+SERVER:: Compare sourceticket: 127  myticket: 125, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 128]
+SERVER:: Compare sourceticket: 128  myticket: 125, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 129]
+SERVER:: Compare sourceticket: 129  myticket: 125, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 130]
+SERVER:: Compare sourceticket: 130  myticket: 125, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  131 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 131]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 131]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 132]
+SERVER:: Compare sourceticket: 132  myticket: 131, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 133]
+SERVER:: Compare sourceticket: 133  myticket: 131, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 134]
+SERVER:: Compare sourceticket: 134  myticket: 131, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  135 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 135]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 135]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 136]
+SERVER:: Compare sourceticket: 136  myticket: 135, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 137]
+SERVER:: Compare sourceticket: 137  myticket: 135, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 138]
+SERVER:: Compare sourceticket: 138  myticket: 135, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 139]
+SERVER:: Compare sourceticket: 139  myticket: 135, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  140 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 140]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 140]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 140]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 141]
+SERVER:: Compare sourceticket: 141  myticket: 140, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 142]
+SERVER:: Compare sourceticket: 142  myticket: 140, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 143]
+SERVER:: Compare sourceticket: 143  myticket: 140, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  144 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 144]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 144]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 144]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 145]
+SERVER:: Compare sourceticket: 145  myticket: 144, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  146 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 146]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 147]
+SERVER:: Compare sourceticket: 147  myticket: 146, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 148]
+SERVER:: Compare sourceticket: 148  myticket: 146, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 149]
+SERVER:: Compare sourceticket: 149  myticket: 146, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 150]
+SERVER:: Compare sourceticket: 150  myticket: 146, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 151]
+SERVER:: Compare sourceticket: 151  myticket: 146, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  152 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 152]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 152]
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 152]
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  153 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 154]
+SERVER:: Compare sourceticket: 154  myticket: 153, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 155]
+SERVER:: Compare sourceticket: 155  myticket: 153, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 156]
+SERVER:: Compare sourceticket: 156  myticket: 153, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 157]
+SERVER:: Compare sourceticket: 157  myticket: 153, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  158 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 158]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 159]
+SERVER:: Compare sourceticket: 159  myticket: 158, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 160]
+SERVER:: Compare sourceticket: 160  myticket: 158, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 161]
+SERVER:: Compare sourceticket: 161  myticket: 158, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  162 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 162]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 163]
+SERVER:: Compare sourceticket: 163  myticket: 162, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049408 38167 164]
+SERVER:: Compare sourceticket: 164  myticket: 162, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 165]
+SERVER:: Compare sourceticket: 165  myticket: 162, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 166]
+SERVER:: Compare sourceticket: 166  myticket: 162, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  167 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 167]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 167]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 168]
+SERVER:: Compare sourceticket: 168  myticket: 167, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  169 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 170]
+SERVER:: Compare sourceticket: 170  myticket: 169, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 171]
+SERVER:: Compare sourceticket: 171  myticket: 169, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 172]
+SERVER:: Compare sourceticket: 172  myticket: 169, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  173 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 174]
+SERVER:: Compare sourceticket: 174  myticket: 173, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 175]
+SERVER:: Compare sourceticket: 175  myticket: 173, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 176]
+SERVER:: Compare sourceticket: 176  myticket: 173, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  177 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 178]
+SERVER:: Compare sourceticket: 178  myticket: 177, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 179]
+SERVER:: Compare sourceticket: 179  myticket: 177, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 180]
+SERVER:: Compare sourceticket: 180  myticket: 177, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 181]
+SERVER:: Compare sourceticket: 181  myticket: 177, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 182]
+SERVER:: Compare sourceticket: 182  myticket: 177, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  183 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 183]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 183]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 184]
+SERVER:: Compare sourceticket: 184  myticket: 183, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  185 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 186]
+SERVER:: Compare sourceticket: 186  myticket: 185, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 187]
+SERVER:: Compare sourceticket: 187  myticket: 185, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 188]
+SERVER:: Compare sourceticket: 188  myticket: 185, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 189]
+SERVER:: Compare sourceticket: 189  myticket: 185, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 190]
+SERVER:: Compare sourceticket: 190  myticket: 185, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  191 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 191]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 191]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 192]
+SERVER:: Compare sourceticket: 192  myticket: 191, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 193]
+SERVER:: Compare sourceticket: 193  myticket: 191, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 194]
+SERVER:: Compare sourceticket: 194  myticket: 191, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  195 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 195]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 195]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 196]
+SERVER:: Compare sourceticket: 196  myticket: 195, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 197]
+SERVER:: Compare sourceticket: 197  myticket: 195, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  198 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 198]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 199]
+SERVER:: Compare sourceticket: 199  myticket: 198, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 200]
+SERVER:: Compare sourceticket: 200  myticket: 198, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 201]
+SERVER:: Compare sourceticket: 201  myticket: 198, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  202 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 202]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 203]
+SERVER:: Compare sourceticket: 203  myticket: 202, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 204]
+SERVER:: Compare sourceticket: 204  myticket: 202, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 205]
+SERVER:: Compare sourceticket: 205  myticket: 202, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 206]
+SERVER:: Compare sourceticket: 206  myticket: 202, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  207 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 207]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 207]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 208]
+SERVER:: Compare sourceticket: 208  myticket: 207, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  209 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 210]
+SERVER:: Compare sourceticket: 210  myticket: 209, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049408 38167 211]
+SERVER:: Compare sourceticket: 211  myticket: 209, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 212]
+SERVER:: Compare sourceticket: 212  myticket: 209, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 213]
+SERVER:: Compare sourceticket: 213  myticket: 209, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  214 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 214]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 215]
+SERVER:: Compare sourceticket: 215  myticket: 214, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 216]
+SERVER:: Compare sourceticket: 216  myticket: 214, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 217]
+SERVER:: Compare sourceticket: 217  myticket: 214, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 218]
+SERVER:: Compare sourceticket: 218  myticket: 214, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  219 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 219]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 219]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 220]
+SERVER:: Compare sourceticket: 220  myticket: 219, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 221]
+SERVER:: Compare sourceticket: 221  myticket: 219, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  222 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 222]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 223]
+SERVER:: Compare sourceticket: 223  myticket: 222, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 224]
+SERVER:: Compare sourceticket: 224  myticket: 222, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 225]
+SERVER:: Compare sourceticket: 225  myticket: 222, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  226 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 226]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 227]
+SERVER:: Compare sourceticket: 227  myticket: 226, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 228]
+SERVER:: Compare sourceticket: 228  myticket: 226, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 229]
+SERVER:: Compare sourceticket: 229  myticket: 226, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 230]
+SERVER:: Compare sourceticket: 230  myticket: 226, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  231 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 231]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 231]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 232]
+SERVER:: Compare sourceticket: 232  myticket: 231, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 233]
+SERVER:: Compare sourceticket: 233  myticket: 231, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 234]
+SERVER:: Compare sourceticket: 234  myticket: 231, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  235 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 235]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 235]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 236]
+SERVER:: Compare sourceticket: 236  myticket: 235, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 237]
+SERVER:: Compare sourceticket: 237  myticket: 235, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  238 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 238]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 239]
+SERVER:: Compare sourceticket: 239  myticket: 238, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049408 38167 240]
+SERVER:: Compare sourceticket: 240  myticket: 238, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 241]
+SERVER:: Compare sourceticket: 241  myticket: 238, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  242 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 242]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 243]
+SERVER:: Compare sourceticket: 243  myticket: 242, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 244]
+SERVER:: Compare sourceticket: 244  myticket: 242, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 245]
+SERVER:: Compare sourceticket: 245  myticket: 242, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  246 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 246]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 247]
+SERVER:: Compare sourceticket: 247  myticket: 246, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 248]
+SERVER:: Compare sourceticket: 248  myticket: 246, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 249]
+SERVER:: Compare sourceticket: 249  myticket: 246, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  250 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 250]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 251]
+SERVER:: Compare sourceticket: 251  myticket: 250, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 252]
+SERVER:: Compare sourceticket: 252  myticket: 250, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 253]
+SERVER:: Compare sourceticket: 253  myticket: 250, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 254]
+SERVER:: Compare sourceticket: 254  myticket: 250, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 255]
+SERVER:: Compare sourceticket: 255  myticket: 250, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  256 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 256]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 256]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 256]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 257]
+SERVER:: Compare sourceticket: 257  myticket: 256, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 258]
+SERVER:: Compare sourceticket: 258  myticket: 256, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 259]
+SERVER:: Compare sourceticket: 259  myticket: 256, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  260 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 260]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 260]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 260]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 261]
+SERVER:: Compare sourceticket: 261  myticket: 260, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 262]
+SERVER:: Compare sourceticket: 262  myticket: 260, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 263]
+SERVER:: Compare sourceticket: 263  myticket: 260, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  264 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 264]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 264]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 264]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049408   
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  265 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 266]
+SERVER:: Compare sourceticket: 266  myticket: 265, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 267]
+SERVER:: Compare sourceticket: 267  myticket: 265, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049408 38167 268]
+SERVER:: Compare sourceticket: 268  myticket: 265, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 269]
+SERVER:: Compare sourceticket: 269  myticket: 265, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 270]
+SERVER:: Compare sourceticket: 270  myticket: 265, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  271 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 271]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 271]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 272]
+SERVER:: Compare sourceticket: 272  myticket: 271, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 273]
+SERVER:: Compare sourceticket: 273  myticket: 271, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 274]
+SERVER:: Compare sourceticket: 274  myticket: 271, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  275 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 275]
+Reply recieved from server a049408 
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 275]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 276]
+SERVER:: Compare sourceticket: 276  myticket: 275, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049405 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+Request Sent to server a049408   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  277 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 278]
+SERVER:: Compare sourceticket: 278  myticket: 277, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 279]
+SERVER:: Compare sourceticket: 279  myticket: 277, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 280]
+SERVER:: Compare sourceticket: 280  myticket: 277, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  281 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 282]
+SERVER:: Compare sourceticket: 282  myticket: 281, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 283]
+SERVER:: Compare sourceticket: 283  myticket: 281, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [request a049405 36298 284]
+SERVER:: Compare sourceticket: 284  myticket: 281, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  285 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 286]
+SERVER:: Compare sourceticket: 286  myticket: 285, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 287]
+SERVER:: Compare sourceticket: 287  myticket: 285, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [request a049404 48414 288]
+SERVER:: Compare sourceticket: 288  myticket: 285, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 0
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 289]
+SERVER:: Compare sourceticket: 289  myticket: 285, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  290 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 290]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 291]
+SERVER:: Compare sourceticket: 291  myticket: 290, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049405 36298 292]
+SERVER:: Compare sourceticket: 292  myticket: 290, sourceport: 36298, myport: 4308 
+Reply Sent to server a049405Server [HOST=a049403 PID=25109]: received [reply a049405 54288]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 293]
+SERVER:: Compare sourceticket: 293  myticket: 290, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 294]
+SERVER:: Compare sourceticket: 294  myticket: 290, sourceport: 38167, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049408   38167 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 295]
+SERVER:: Compare sourceticket: 295  myticket: 290, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  296 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+Server [HOST=a049403 PID=25109]: received [reply a049408 6037 296]
+Reply recieved from server a049408 
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 296]
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 296]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049404 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 3
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049408   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 297]
+SERVER:: Compare sourceticket: 297  myticket: 296, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  298 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 298]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 299]
+SERVER:: Compare sourceticket: 299  myticket: 298, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [request a049404 48414 300]
+SERVER:: Compare sourceticket: 300  myticket: 298, sourceport: 48414, myport: 4308 
+Reply Sent to server a049404Server [HOST=a049403 PID=25109]: received [reply a049404 54288]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 1
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049405 36298 301]
+SERVER:: Compare sourceticket: 301  myticket: 298, sourceport: 36298, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049405   36298 ,
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 302]
+SERVER:: Compare sourceticket: 302  myticket: 298, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+    Client [HOST=a049403 PID=25109]: LEAVING NON-CRITICAL SECTION
+TEST::CLIENT:: my ticket no  303 
+        Client: Request Sent to server a049408   
+        Client: Request Sent to server a049405   
+        Client: Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: WAITING TO ENTER CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [reply a049405 51853 303]
+Reply recieved from server a049405 
+Server [HOST=a049403 PID=25109]: received [reply a049404 7869 303]
+Reply recieved from server a049404 
+Server [HOST=a049403 PID=25109]: received [request a049408 38167 304]
+SERVER:: Compare sourceticket: 304  myticket: 303, sourceport: 38167, myport: 4308 
+Reply Sent to server a049408Server [HOST=a049403 PID=25109]: received [reply a049408 54288]
+    Client [HOST=a049403 PID=25109]: ENTERING CRITICAL SECTION
+Reply recieved from server a049408 
+    Client [HOST=a049403 PID=25109]: LEAVING CRITICAL SECTION
+        TEST::CLIENT:: got lock in critical section 2
+        TEST::CLIENT:: after deferred count
+Request Sent to server a049405   
+Request Sent to server a049404   
+    Client [HOST=a049403 PID=25109]: ENTERING NON-CRITICAL SECTION
+Server [HOST=a049403 PID=25109]: received [request a049404 48414 305]
+SERVER:: Compare sourceticket: 305  myticket: 303, sourceport: 48414, myport: 4308 
+TEST::SERVER:: Added to deferred table are:  a049404   48414 ,
+Server [HOST=a049403 PID=25109]: received [shutdown]
+Script on a049403[3]% exit
+exit
+
+Script done on Thu Nov 30 09:06:39 2017

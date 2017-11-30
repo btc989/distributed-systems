@@ -68,7 +68,7 @@ void *server_thread (void *args)
 
     while (LOOP_FOREVER)
     {
-       printf("TEST::SERVER:: after at beginning ");
+      // printf("TEST::SERVER:: after at beginning ");
                fflush(stdout);
         addr_length = sizeof (client_addr);
 
@@ -124,7 +124,7 @@ void *server_thread (void *args)
                 else
                     *my_highest_ticket_no = *my_ticket_no;
 
-                 printf("TEST::SERVER:: just before compare ,%d  %d, %d, %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, port_no);
+                 printf("SERVER:: Compare sourceticket: %d  myticket: %d, sourceport: %d, myport: %d \n",sourceTicketNo, *my_ticket_no, sourcePortNo, port_no);
                 //fflush(stdout);
                 fflush(stdout);
                 if(*my_request || (sourceTicketNo < *my_ticket_no)|| ((sourceTicketNo == *my_ticket_no)&&(sourcePortNo < port_no ))){ //&& (sourceID < myID ()))
@@ -183,12 +183,25 @@ void *server_thread (void *args)
                 }
                 else{
                     //defer reply
-                    printf("TEST::SERVER:: just before defferd,\n");
+                   // printf("TEST::SERVER:: just before defferd,\n");
                     
-                    *my_deferred_table[*my_deferred_count].host_name = source_host_name;
-                    my_deferred_table[*my_deferred_count].port_no = sourcePortNo;
+                    // my_deferred_table->host_name = *source_host_name;
+
+                    // my_deferred_table[*my_deferred_count]= malloc(sizeof(struct server_address));
+
+                     strcpy (my_deferred_table[*my_deferred_count].host_name, source_host_name);
+                     my_deferred_table[*my_deferred_count].port_no = sourcePortNo;
+                     
+                    
+                    //printf("TEST::SERVER:: just after defferd %d   %d ,\n",*my_deferred_count, my_deferred_table[*my_deferred_count].port_no);
+                   // printf("TEST::SERVER:: ServerNum entered %d ,\n",sourcePortNo);
+                   // printf("TEST::SERVER:: HostNamme entered %s ,\n",source_host_name);
+                   // printf("TEST::SERVER:: array values %s   %d ,\n",my_deferred_table->host_name, my_deferred_table->port_no);
+                    printf("TEST::SERVER:: Added to deferred table are:  %s   %d ,\n",my_deferred_table[*my_deferred_count].host_name, my_deferred_table[*my_deferred_count].port_no);
+                   // printf("table address b %d \n",my_deferred_table );
+                    
+                    //printf("table address a %d \n",my_deferred_table );
                     *my_deferred_count = *my_deferred_count +1;
-                    printf("TEST::SERVER:: just after defferd %d   %d ,\n",*my_deferred_count, my_deferred_table[*my_deferred_count].port_no);
                     mutex_unlock (caller);
                 }
                 mutex_unlock (caller);

@@ -1,0 +1,24 @@
+Script started on Thu Nov 30 09:03:13 2017
+Script on a049402[1]% make
+make: Warning: File `serverThread.c' has modification time 3.4e+03 s in the future
+gcc -c -g   serverThread.c -lrt
+gcc -c -g   clientThread.c -lrt
+gcc -lrt ricartAgrawala.o serverThread.o clientThread.o threadIO.o -o general
+make: warning:  Clock skew detected.  Your build may be incomplete.
+Script on a049402[2]% gzap
+Script on a049402[3]% ezap
+Script on a049402[4]% environment
+Environment [HOST=a049402 PID=4593}: Press [ctrl/d] to start
+Environment [HOST=a049402 PID=4593]: [start] sent to [HOST=a049408 PORT=38167]
+Environment [HOST=a049402 PID=4593]: [start] sent to [HOST=a049405 PORT=36298]
+Environment [HOST=a049402 PID=4593]: [start] sent to [HOST=a049404 PORT=48414]
+Environment [HOST=a049402 PID=4593]: [start] sent to [HOST=a049403 PORT=54288]
+Environment [HOST=a049402 PID=4593]: Press [ctrl/d] to shutdown 
+Environment [HOST=a049402 PID=4593]: [shutdown] sent to [HOST=a049408 PORT=38167]
+Environment [HOST=a049402 PID=4593]: [shutdown] sent to [HOST=a049405 PORT=36298]
+Environment [HOST=a049402 PID=4593]: [shutdown] sent to [HOST=a049404 PORT=48414]
+Environment [HOST=a049402 PID=4593]: [shutdown] sent to [HOST=a049403 PORT=54288]
+Script on a049402[5]% exit
+exit
+
+Script done on Thu Nov 30 09:06:27 2017
